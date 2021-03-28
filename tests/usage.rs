@@ -41,13 +41,13 @@ mod readme {
             .expect("Invalid utf8 output for `--help`");
         let readme = load_readme_text();
 
-        const BACKTICKS_OFFSET: usize = 3; // marker: ```
+        const BACKTICKS_OFFSET: usize = 7; // marker: ```text
         const NEWLINE_OFFSET: usize = 1;
 
         let usage_start = BACKTICKS_OFFSET
             + NEWLINE_OFFSET
             + readme
-                .find("```\nUSAGE:\n")
+                .find("```text\nUSAGE:\n")
                 .expect("Couldn't find USAGE section in README.md");
 
         let usage_end = readme[usage_start..]
